@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/40afbc3083.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 max-w-sm w-full">
+            <div class="flex justify-between">
+                <h2 class="text-2xl font-bold text-center text-gray-800 dark:text-gray-100 mb-6">Login</h2>
+                <button id="toggleDark" class="p-2 w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center justify-center">
+                    <i id="modeIcon" class="fa-solid fa-sun"></i> <!-- Default to moon icon -->
+                </button>
+            </div>
+            <form action="/login" method="POST" class="space-y-4">
+                <!-- Email -->
+                <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    class="mt-1 block w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="you@example.com"
+                />
+                </div>
+        
+                <!-- Password -->
+                <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    required
+                    class="mt-1 block w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="••••••••"
+                />
+                </div>
+        
+                <!-- Remember Me + Forgot Password -->
+                <div class="flex items-center justify-between">
+                <label class="flex items-center text-sm text-gray-700 dark:text-gray-300">
+                    <input type="checkbox" class="form-checkbox text-blue-600 mr-2" />
+                    Remember me
+                </label>
+                <a href="/forgot-password" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
+                </div>
+        
+                <!-- Submit Button -->
+                <button
+                type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                Sign in
+                </button>
+            </form>
+        
+            <!-- Sign up link -->
+            <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
+                Don't have an account?
+                <a href="/register" class="text-blue-600 hover:underline">Sign up</a>
+            </p>
+        </div>
+    </div> 
+    <script src="/js/darkMode.js"></script>     
+</body>
+</html>

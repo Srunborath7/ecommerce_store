@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%=title%></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/40afbc3083.js" crossorigin="anonymous"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,km,zh-CN,ja,ko,th,vi,id,ms,fil',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+  <header>
+    <div>
+      <h1 class='text-2xl font-bold text-primary'>My shop</h1>
+    </div>
+  </header>
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed z-40 top-0 left-0 h-screen w-64 bg-white dark:bg-gray-800 p-6 shadow-md transform transition-transform duration-200 ease-in-out -translate-x-full md:translate-x-0">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold text-primary">MyShop</h2>
+
+        <!-- Close button (mobile only) -->
+        <button id="closeSidebar" class="md:hidden text-xl font-bold text-gray-600 dark:text-gray-300">&times;</button>
+      </div>
+      <nav class="navbar flex flex-start flex-col gap-4 text-gray-700 dark:bg-gray-800">
+        <a href="/" class="<%= activePage === 'dashboard' ? 'text-red-500 dark:text-red-500' : 'text-gray-700 dark:text-gray-300' %>">
+          <i class="fa-solid fa-gauge-simple-high"></i> Dashboard
+        </a>        
+        <a href="/categories" class="<%= activePage === 'categories' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'categories' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-layer-group"></i> Categories
+        </a>
+        <a href="/products" class="<%= activePage === 'products' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'products' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-cubes-stacked"></i> Products
+        </a>
+        <a href="#" class="<%= activePage === 'payments' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'payments' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-money-bill-1"></i> Payments
+        </a>
+        <a href="#" class="<%= activePage === 'customers' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'customers' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-users-gear"></i> Customers
+        </a>
+        <a href="#" class="<%= activePage === 'subscriptions' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'subscriptions' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-ticket"></i> Subscriptions
+        </a>
+        <a href="#" class="<%= activePage === 'invoices' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'invoices' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Invoices
+        </a>
+        <a href="/setting" class="<%= activePage === 'settings' ? 'text-red-500' : 'text-gray-700' %> dark:<%= activePage === 'settings' ? 'text-red-500' : 'text-gray-300' %>">
+          <i class="fa-solid fa-gear"></i> Settings
+        </a>
+      </nav>     
+  </aside>
+  
+  <!-- Main content -->
+  <main id="mainContent" class="flex-1 overflow-y-auto p-2 md:p-8 ml-0 transition-all duration-300 ease-in-out  scroll-smooth">
+      <!-- Topbar -->
+      <div class="flex items-center justify-between mb-6">
+        <!-- Sidebar toggle button (mobile) -->
+        <button id="sidebarToggle" class="p-2 rounded bg-gray-200 dark:bg-gray-700">
+          ☰
+        </button>
+        
+        <div class="flex justify-around w-full">
+          <h1 class="text-3xl font-bold"><%=headerPage%></h1>
+          <button id="toggleDark" class="p-2 w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center justify-center">
+            <i id="modeIcon" class="fa-solid fa-sun"></i> <!-- Default to moon icon -->
+          </button>
+        </div>
+      </div>
+      <div id="google_translate_element" style="display: none;"></div>
+      <div>      
+        <%- body %>
+      </div>
+  </main>
+  <footer id="footer" class="bg-white text-gray-700 dark:bg-gray-700 dark:text-gray-300 p-4 md:p-8 transition-all duration-300 ease-in-out ml-0 md:ml-64">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand Info -->
+        <div>
+          <h2 class="text-gray-700 text-xl dark:text-white font-semibold">YourBrand</h2>
+          <p class="mt-2 text-sm text-gray-700 dark:text-white">Providing reliable services since 2025.</p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white text-sm font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Home</a></li>
+            <li><a href="#" class="hover:text-white">Shop</a></li>
+            <li><a href="#" class="hover:text-white">About</a></li>
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Support -->
+        <div>
+          <h3 class="text-white text-sm font-semibold mb-4">Support</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Help Center</a></li>
+            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white">Returns</a></li>
+          </ul>
+        </div>
+  
+        <!-- Newsletter -->
+        <div>
+          <h3 class="text-white text-sm font-semibold mb-4">Newsletter</h3>
+          <form class="flex flex-col sm:flex-row gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="px-3 py-2 rounded-md border border-gray-300 p-2 rounded dark:bg-gray-700 placeholder-gray-500 focus:outline-none focus:ring focus:border-blue-400 w-full"
+            />
+            <button
+              type="submit"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+  
+      <div class="mt-10 text-center text-sm text-gray-500 dark:text-gray-300">
+        © 2025 YourBrand. All rights reserved.
+      </div>
+    </div>
+  </footer>  
+   <!-- Language Persist -->
+  <script>
+    const langObserver = new MutationObserver(() => {
+      const gtSelect = document.querySelector('.goog-te-combo');
+      const savedLang = localStorage.getItem('preferredLang');
+      if (gtSelect && savedLang) {
+        gtSelect.value = savedLang;
+        gtSelect.dispatchEvent(new Event('change'));
+        langObserver.disconnect();
+      }
+    });
+    langObserver.observe(document.body, { childList: true, subtree: true });
+  </script>
+  <script src="/js/navBar.js"></script>
+  <script src="/js/darkMode.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
