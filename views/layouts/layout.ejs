@@ -28,14 +28,22 @@
     </div>
   </header>
   <!-- Sidebar -->
-  <aside id="sidebar" class="fixed z-40 top-0 left-0 h-screen w-64 bg-white dark:bg-gray-800 p-6 shadow-md transform transition-transform duration-200 ease-in-out -translate-x-full md:translate-x-0">
-      <div class="flex justify-between items-center mb-8">
+  <aside id="sidebar" class="fixed z-40 top-0 left-0 h-screen w-64 bg-white dark:bg-gray-800  shadow-md transform transition-transform duration-200 ease-in-out -translate-x-full md:translate-x-0">
+      <div class=" w-full dark:bg-gray-800 rounded-xl shadow-md p-4">
         <h2 class="text-2xl font-bold text-primary">MyShop</h2>
-
-        <!-- Close button (mobile only) -->
-        <button id="closeSidebar" class="md:hidden text-xl font-bold text-gray-600 dark:text-gray-300">&times;</button>
+        <div class="flex justify-around items-center mb-8">
+          <div class="flex items-center gap-3">
+            <img src="" alt="User Photo" class="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-600" />
+            <div class="flex flex-col">
+              <h2 class="text-md font-semibold text-gray-900 dark:text-white">admin</h2>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Admin</span>
+            </div>
+          </div>
+          <!-- Close button (mobile only) -->
+          <button id="closeSidebar" class="md:hidden text-xl font-bold text-gray-600 dark:text-gray-300">&times;</button>
+        </div>
       </div>
-      <nav class="navbar flex flex-start flex-col gap-4 text-gray-700 dark:bg-gray-800">
+      <nav class="navbar flex flex-start flex-col gap-4 text-gray-700 dark:bg-gray-800 p-6">
         <a href="/" class="<%= activePage === 'dashboard' ? 'text-red-500 dark:text-red-500' : 'text-gray-700 dark:text-gray-300' %>">
           <i class="fa-solid fa-gauge-simple-high"></i> Dashboard
         </a>        
