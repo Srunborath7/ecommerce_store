@@ -42,8 +42,35 @@
   z-index: 100000;
   display: none;
 }
+
 @media (min-width:767px) {
     header{
         display: none;
+    }
+    
+}
+@media (max-width:767px){
+    header{
+        padding: 10px 20px;
+    }
+    .header-page{
+        margin-top: 10px;
+        justify-content: space-between !important;
+        flex-wrap: wrap;
+        padding: 20px 20px;
+    }
+    .header-page h1{
+        font-size: 22px;
+    }
+    .navbar a{
+        font-size: 18px;
+    }
+    .navbar a i{
+        font-size: 18px;
+    }
+    .setting {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
     }
 }
